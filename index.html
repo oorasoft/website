@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OORA Software Solutions – Industry 4.0 Innovation Company</title>
+    <meta
+      name="description"
+      content="OORA Software Solutions (OORATECH.COM) – A rural-based company focused on Industry 4.0 technologies like IoT, IIoT, Industrial Automation, Robotics, and AI."
+    />
+    <meta
+      property="og:title"
+      content="OORA Software Solutions – Industry 4.0 Innovation Company"
+    />
+    <meta
+      property="og:description"
+      content="Focused on Industry 4.0: IoT, IIoT, Robotics, Automation, and AI. Building smart industrial software solutions from rural KrishnanKoil."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ooratech.com/" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --brand-primary: #dc2626;
+        --brand-dark: #991b1b;
+        --brand-light: #fee2e2;
+        --accent-orange: #f97316;
+        --accent-red: #ef4444;
+        --text-primary: #1a1a1a;
+        --text-secondary: #6c757d;
+        --section-padding: 5rem;
+      }
+
+      * {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: var(--text-primary);
+        line-height: 1.7;
+      }
+
+      /* Navbar Enhancement */
+      .navbar {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.35rem;
+        background: linear-gradient(
+          135deg,
+          var(--brand-primary),
+          var(--brand-dark)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: var(--text-primary) !important;
+        padding: 0.5rem 1rem !important;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: var(--brand-primary) !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--brand-primary);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 80%;
+      }
+
+      /* Enhanced Hero */
+      .hero {
+        background: transparent;
+        color: white;
+        padding: 7rem 0 6rem;
+        position: relative;
+        overflow: hidden;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Layer 1: Full blurred background */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("hero.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(10px);
+        z-index: 0;
+      }
+
+      /* Layer 2: Clear image on right side (core 80% content) */
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        background: url("hero.jpg");
+        background-size: 125% auto; /* Zoom to show core content */
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+        mask-image: linear-gradient(to right, transparent 0%, black 15%);
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 15%
+        );
+      }
+
+      /* Layer 3: Ensure content is above */
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-text-overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(220, 38, 38, 0.95) 0%,
+          rgba(153, 27, 27, 0.9) 100%
+        );
+        backdrop-filter: blur(10px);
+        padding: 3rem 3.5rem;
+        border-radius: 0;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-text-overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.2) 100%
+        );
+        pointer-events: none;
+      }
+
+      .hero .badge {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 0.5rem 1.2rem;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+      }
+
+      .hero h1 {
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero .lead {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        opacity: 0.95;
+      }
+
+      .btn-hero-primary {
+        background: white;
+        color: var(--brand-primary);
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .btn-hero-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+        background: #f8f9fa;
+        color: var(--brand-dark);
+      }
+
+      .btn-hero-outline {
+        border: 2px solid white;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        background: transparent;
+        transition: all 0.3s ease;
+      }
+
+      .btn-hero-outline:hover {
+        background: white;
+        color: var(--brand-primary);
+        transform: translateY(-2px);
+      }
+
+      /* Stats Section */
+      .stats-section {
+        background: var(--brand-light);
+        padding: 3rem 0;
+        margin-top: -3rem;
+        position: relative;
+        z-index: 3;
+      }
+
+      .stat-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--brand-primary),
+          var(--accent-orange)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      /* Section Styling */
+      section {
+        padding: var(--section-padding) 0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-subtitle {
+        color: var(--brand-primary);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .section-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2.5rem 2rem;
+        height: 100%;
+        border: 1px solid #e9ecef;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--brand-primary),
+          var(--accent-orange)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        border-color: var(--brand-primary);
+        box-shadow: 0 10px 40px rgba(13, 110, 253, 0.15);
+        transform: translateY(-5px);
+      }
+
+      .feature-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+        background: var(--brand-light);
+        color: var(--brand-primary);
+      }
+
+      .feature-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .feature-card p {
+        color: var(--text-secondary);
+        margin-bottom: 0;
+        line-height: 1.7;
+      }
+
+      /* Value Props */
+      .value-prop {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 1rem;
+        padding: 2rem;
+        height: 100%;
+        border-left: 4px solid var(--brand-primary);
+      }
+
+      .value-prop-icon {
+        font-size: 2rem;
+        color: var(--brand-primary);
+        margin-bottom: 1rem;
+      }
+
+      .value-prop h4 {
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Vision/Mission Cards */
+      .vision-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 3rem;
+        height: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid var(--brand-primary);
+      }
+
+      .vision-card h2 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+      }
+
+      .vision-card p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+
+      /* Career Table */
+      .career-table {
+        background: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    margin: 0 auto;        
+      }
+
+      .career-table thead {
+        background: linear-gradient(
+          135deg,
+          var(--brand-primary),
+          var(--brand-dark)
+        );
+        color: white;
+      }
+
+      .career-table thead th {
+        font-weight: 600;
+        padding: 1.25rem 1rem;
+        border: none;
+      }
+
+      .career-table tbody tr {
+        transition: background-color 0.2s ease;
+      }
+
+      .career-table tbody tr:hover {
+        background-color: var(--brand-light);
+      }
+
+      .career-table tbody td {
+        padding: 1.25rem 1rem;
+        vertical-align: middle;
+      }
+
+
+      .career-table th:first-child,
+      .career-table td:first-child {
+          width: 45%;
+      }
+
+      .career-table th:last-child,
+      .career-table td:last-child {
+          width: 55%;
+      }      
+
+        /* Qualifications Card */
+        .qualifications-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #dc2626;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .qualifications-card h5 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .qualifications-card h5 i {
+            color: #dc2626;
+        }
+
+        .qualifications-card ul {
+            margin-bottom: 0;
+            padding-left: 1.5rem;
+        }
+
+        .qualifications-card li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+            color: #6c757d;
+        }
+
+        .qualifications-card ul ul {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+      /* Testimonial/Partner Section */
+      .partner-badge {
+        background: white;
+        border-radius: 1rem;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .partner-badge i {
+        font-size: 2rem;
+        color: var(--brand-primary);
+      }
+
+      /* Contact Cards */
+      .contact-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2.5rem;
+        height: 100%;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-info-item i {
+        color: var(--brand-primary);
+        font-size: 1.25rem;
+        margin-top: 0.25rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #e4e4e4;
+        padding: 3rem 0 2rem;
+      }
+
+      .footer h5 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: white;
+      }
+
+      .footer a {
+        color: #b8c5d6;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: white;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        margin-right: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--brand-primary);
+        transform: translateY(-3px);
+      }
+
+      /* Buttons */
+      .btn {
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: var(--brand-primary);
+        border: none;
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: var(--brand-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-on-scroll {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 3rem 0;
+        }
+
+        .hero {
+          padding: 4rem 0 3rem;
+        }
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.35rem;
+        /* Remove the gradient text styling since we're using an image now */
+      }
+
+      .navbar-brand img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <!--<<a class="navbar-brand" href="#home">OORA Software Solutions</a>> -->
+        <a class="navbar-brand" href="#home">
+          <img
+            src="logo.png"
+            alt="OORA Software Solutions"
+            style="height: 40px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#solutions">Solutions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#why-us">Why Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#vision">Vision</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#career">Careers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero">
+      <div class="container hero-content">
+        <div class="row">
+          <div class="col-lg-8 col-xl-7">
+            <div class="hero-text-overlay">
+              <span class="badge rounded-pill mb-3">
+                <i class="fas fa-building me-2"></i>OORA Software Solutions
+              </span>
+              <h1 class="display-4">
+                Transforming Industries with Intelligent Automation
+              </h1>
+              <p class="lead">
+                Powered by elite industrial professionals from leading MNCs,
+                OORA Software Solutions delivers cutting-edge Industry 4.0
+                solutions—IoT, IIoT, Robotics, AI, and Industrial
+                Automation—engineered to revolutionize manufacturing and
+                operational excellence.
+              </p>
+              <div class="d-flex gap-3 mt-4">
+                <a href="#solutions" class="btn btn-hero-primary"
+                  >Explore Solutions</a
+                >
+                <a href="#career" class="btn btn-hero-outline">Join Our Team</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-3 col-6">
+            <div class="stat-card">
+              <div class="stat-number">Industry 4.0</div>
+              <div class="stat-label">Automation</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-card">
+              <div class="stat-number">Artificial Intelligence</div>
+              <div class="stat-label">Research & Development</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-card">
+              <div class="stat-number">Digital Twin</div>
+              <div class="stat-label">Virtualization</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-card">
+              <div class="stat-number">SCADA</div>
+              <div class="stat-label">Power Systems</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Who We Are</div>
+          <h2 class="section-title">
+            Pioneering the Future of Industrial Technology
+          </h2>
+          <p class="section-description">
+            Based in rural Tamil Nadu, OORA Software Solutions represents a
+            unique convergence of world-class technical expertise and grassroots
+            innovation, developing enterprise-grade Industry 4.0 solutions that
+            compete globally.
+          </p>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <div class="col-lg-6">
+            <div class="value-prop">
+              <div class="value-prop-icon"><i class="fas fa-industry"></i></div>
+              <h4>Industry Expertise</h4>
+              <p>
+                Our founding team consists of experienced professionals from top
+                Indian and international companies, with decades of collective
+                expertise in manufacturing automation, enterprise software, and
+                digital transformation..
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="value-prop">
+              <div class="value-prop-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h4>Innovation from the Ground Up</h4>
+              <p>
+                Operating from KrishnanKoil allows us to build cost-effective,
+                high-quality solutions while fostering local talent and
+                contributing to rural technological advancement—proving that
+                world-class innovation knows no geographical boundaries.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h3 class="h2 mb-4">What Sets Us Apart</h3>
+            <p class="lead">
+              OORA Software Solutions bridges the gap between cutting-edge
+              technology and practical industrial applications. We don't just
+              build software—we architect comprehensive digital ecosystems that
+              enhance productivity, reduce operational costs, and future-proof
+              manufacturing operations.
+            </p>
+            <p>
+              Our solutions integrate seamlessly with existing infrastructure,
+              from legacy PLCs to modern cloud platforms, ensuring smooth
+              digital transformation without disrupting production workflows.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="partner-badge">
+              <i class="fas fa-handshake"></i>
+              <div>
+                <strong class="d-block">Strategic Hardware Partnership</strong>
+                <span class="text-muted"
+                  ><a href="https://www.wimerasys.com/">WIMERA</a> – Delivering
+                  robust industrial-grade edge computing and connectivity
+                  solutions for seamless IoT/IIoT implementation</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS -->
+    <section id="solutions" class="bg-light">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Our Capabilities</div>
+          <h2 class="section-title">Comprehensive Industry 4.0 Solutions</h2>
+          <p class="section-description">
+            From factory floor to executive dashboard, we deliver end-to-end
+            digital transformation solutions tailored to modern manufacturing
+            challenges.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <h3>IoT & IIoT Platforms</h3>
+              <p>
+                Enterprise-grade Industrial Internet of Things solutions
+                featuring device provisioning, real-time data ingestion via
+                MQTT/OPC-UA, time-series databases, customizable dashboards,
+                predictive analytics, and intelligent alerting systems. Monitor
+                thousands of sensors and machines from a unified interface.
+              </p>
+              <ul class="mt-3 text-secondary">
+                <li>
+                  Multi-protocol device connectivity (MQTT, OPC-UA, Modbus,
+                  HTTP/REST)
+                </li>
+                <li>
+                  Real-time telemetry visualization and historical trend
+                  analysis
+                </li>
+                <li>Configurable alarm thresholds and notification routing</li>
+                <li>Edge computing for latency-sensitive operations</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+              <h3>Industrial Automation</h3>
+              <p>
+                Comprehensive SCADA systems, PLC/HMI integration frameworks,
+                distributed control systems, and workflow orchestration
+                platforms. Digitize manual processes with electronic work
+                instructions, digital checklists, and automated quality gates
+                that enforce compliance and traceability.
+              </p>
+              <ul class="mt-3 text-secondary">
+                <li>SCADA system design and implementation</li>
+                <li>
+                  PLC programming and HMI development (Siemens, Allen-Bradley,
+                  Schneider)
+                </li>
+                <li>Recipe management and batch control systems</li>
+                <li>Manufacturing Execution Systems (MES) integration</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-robot"></i></div>
+              <h3>Robotics & Motion Control</h3>
+              <p>
+                Advanced control software for industrial robots, collaborative
+                robots (cobots), automated guided vehicles (AGVs), and material
+                handling systems. Our middleware solutions enable seamless
+                coordination between multiple robotic cells, optimizing
+                throughput and minimizing idle time.
+              </p>
+              <ul class="mt-3 text-secondary">
+                <li>Robot fleet management and task scheduling</li>
+                <li>Vision-guided robotics for pick-and-place operations</li>
+                <li>
+                  Safety-certified cobot integration for human-robot
+                  collaboration
+                </li>
+                <li>Path planning and collision avoidance algorithms</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-brain"></i></div>
+              <h3>AI & Machine Learning for Manufacturing</h3>
+              <p>
+                Leverage artificial intelligence to transform raw data into
+                actionable insights. Our AI solutions include predictive
+                maintenance models that forecast equipment failures, computer
+                vision systems for automated quality inspection, anomaly
+                detection algorithms, and optimization engines that continuously
+                improve production parameters.
+              </p>
+              <ul class="mt-3 text-secondary">
+                <li>Predictive maintenance using time-series forecasting</li>
+                <li>Computer vision for defect detection and classification</li>
+                <li>Process optimization through reinforcement learning</li>
+                <li>
+                  Natural language interfaces for intuitive system interaction
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Competitive Advantages</div>
+          <h2 class="section-title">Why Partner with OORA?</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon mx-auto mb-3">
+                <i class="fas fa-users-cog"></i>
+              </div>
+              <h4 class="h5 mb-3">Elite Technical Team</h4>
+              <p class="text-secondary">
+                Engineers with proven track records at multinational
+                corporations, bringing enterprise-level expertise to every
+                project.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon mx-auto mb-3">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <h4 class="h5 mb-3">Cost-Effective Excellence</h4>
+              <p class="text-secondary">
+                Rural operational model enables competitive pricing without
+                compromising on quality or sophistication of solutions.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon mx-auto mb-3">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h4 class="h5 mb-3">Dedicated Support</h4>
+              <p class="text-secondary">
+                Responsive technical support and continuous system optimization
+                to ensure maximum uptime and performance.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="text-center">
+              <div class="feature-icon mx-auto mb-3">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h4 class="h5 mb-3">Scalable & Secure</h4>
+              <p class="text-secondary">
+                Architecture designed for growth, with enterprise-grade security
+                protocols protecting your industrial data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <section id="vision" class="bg-light">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Our Purpose</div>
+          <h2 class="section-title">Vision & Mission</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="vision-card">
+              <div class="d-flex align-items-center mb-3">
+                <i
+                  class="fas fa-eye text-primary me-3"
+                  style="font-size: 2rem"
+                ></i>
+                <h2>Our Vision</h2>
+              </div>
+              <p>
+                To be the leading research and development powerhouse in
+                industrial automation, empowering businesses globally to achieve
+                unprecedented productivity gains and operational excellence
+                through intelligent, adaptive technology solutions that minimize
+                human toil and maximize strategic value creation.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="vision-card">
+              <div class="d-flex align-items-center mb-3">
+                <i
+                  class="fas fa-bullseye text-primary me-3"
+                  style="font-size: 2rem"
+                ></i>
+                <h2>Our Mission</h2>
+              </div>
+              <p>
+                To discover, cultivate, and unite exceptional talent from local
+                communities, across India, and around the world on a
+                collaborative platform dedicated to developing next-generation
+                industrial solutions that transform manufacturing, democratize
+                advanced technology, and create sustainable economic
+                opportunities in rural India.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section id="career">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Join Us</div>
+          <h2 class="section-title">Build the Future of Industry 4.0</h2>
+          <p class="section-description">
+            We're assembling a world-class team of engineers, innovators, and
+            problem-solvers. Work on cutting-edge projects with competitive
+            compensation and free accommodation for all employees.
+          </p>
+        </div>
+
+        <div class="career-table mb-4">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th>Experience Required</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Senior Software Engineer</strong></td>
+                <td>3+ years in industrial/automation domain</td>
+              </tr>
+              <tr>
+                <td><strong>Software Engineer</strong></td>
+                <td>1–2 years in any programming language</td>
+              </tr>
+              <tr>
+                <td><strong>Associate Software Engineer</strong></td>
+                <td>Fresh graduates with OOP knowledge</td>
+              </tr>
+              <tr>
+                <td><strong>DevOps Engineer</strong></td>
+                <td>2+ years in CI/CD, cloud infrastructure</td>
+              </tr>
+              <tr>
+                <td><strong>Sales & Marketing Lead</strong></td>
+                <td>3+ years in B2B industrial sales</td>
+              </tr>
+              <tr>
+                <td><strong>Internship Program</strong></td>
+                <td>Students passionate about programming</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Qualifications Card -->
+        <div class="qualifications-card mb-4">
+            <h5><i class="fas fa-graduation-cap me-2"></i>Eligible Qualifications for Technical Positions</h5>
+            <ul>
+                <li>BSc (CS/IT/Maths/Physics/Statistics/Electronics) / BCA</li>
+                <li>
+                    BE / BTech / ME / MTech in any of the following:
+                    <ul>
+                        <li>Computer Science (CS)</li>
+                        <li>Information Technology (IT)</li>
+                        <li>Electronics & Communication Engineering (ECE)</li>
+                        <li>Electrical & Electronics Engineering (EEE)</li>
+                        <li>Artificial Intelligence / Machine Learning</li>
+                        <li>Mechanical, Civil, Chemical, Aerospace, Mechatronics, Automobile, Production Engineering</li>
+                    </ul>
+                </li>
+                <li>MCA / MSc (CS, IT, Maths, Physics, Statistics)</li>
+                <li>Diploma in Computer Engineering / IT / Electronics</li>
+                <li>
+                    PG Diploma in:
+                    <ul>
+                        <li>Data Science / AI / ML</li>
+                        <li>Cybersecurity</li>
+                        <li>Cloud Computing / DevOps</li>
+                        <li>Full Stack Development</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+      </br>
+
+        <div class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="value-prop">
+              <div class="value-prop-icon"><i class="fas fa-home"></i></div>
+              <h4>Free Accommodation</h4>
+              <p>
+                Comfortable housing provided for all recruited employees,
+                eliminating relocation concerns.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="value-prop">
+              <div class="value-prop-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h4>Continuous Learning</h4>
+              <p>
+                Access to training programs, certifications, and exposure to
+                cutting-edge industrial technologies.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="value-prop">
+              <div class="value-prop-icon"><i class="fas fa-rocket"></i></div>
+              <h4>Growth Opportunities</h4>
+              <p>
+                Fast-track career advancement in a rapidly growing company at
+                the forefront of Industry 4.0.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScnwtLDQpTHQwJGyLuvblkguC6G4FbnJWfH9gClYClR8ZdA5w/viewform?usp=publish-editor"
+            class="btn btn-primary btn-lg"
+          >
+            <i class="fas fa-envelope me-2"></i>Apply Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-light">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Get In Touch</div>
+          <h2 class="section-title">Let's Transform Your Operations</h2>
+          <p class="section-description">
+            Ready to embark on your Industry 4.0 journey? Our team is here to
+            discuss your automation needs and craft tailored solutions.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="contact-card">
+              <h3><i class="fas fa-building text-primary me-2"></i>Visit Us</h3>
+              <div class="contact-info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>OORA Software Solutions</strong><br />
+                  #607, OORA Apartment<br />
+                  Near Sankara Eye Hospital<br />
+                  KrishnanKoil, Srivilliputtur<br />
+                  Tamil Nadu, India
+                </div>
+              </div>
+              <div class="mt-4">
+                <a
+                  class="btn btn-outline-primary"
+                  target="_blank"
+                  rel="noopener"
+                  href="https://www.google.com/maps/place/OORA+APARTMENT/@9.5623803,77.6845786,17z/data=!4m14!1m7!3m6!1s0x3b06db792107e0bb:0x8f7c431715f02341!2sOORA+APARTMENT!8m2!3d9.5623803!4d77.6845786!16s%2Fg%2F11g1hlx0g9!3m5!1s0x3b06db792107e0bb:0x8f7c431715f02341!8m2!3d9.5623803!4d77.6845786!16s%2Fg%2F11g1hlx0g9?entry=ttu&g_ep=EgoyMDI1MTExMC4wIKXMDSoASAFQAw%3D%3D"
+                >
+                  <i class="fas fa-map me-2"></i>Get Directions
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="contact-card">
+              <h3>
+                <i class="fas fa-phone-alt text-primary me-2"></i>Contact
+                Information
+              </h3>
+              <div class="contact-info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>Phone</strong><br />
+                  <a href="tel:+919488930228">+91-9488-930-228</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>General Inquiries</strong><br />
+                  <a href="mailto:info@ooratech.com">info@ooratech.com</a>
+                </div>
+              </div>
+              <!--<div class="contact-info-item">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                  <strong>Career Opportunities</strong><br />
+                  <a href="mailto:career@ooratech.com">career@ooratech.com</a>
+                </div>
+              </div> -->
+              <div class="contact-info-item">
+                <i class="fas fa-globe"></i>
+                <div>
+                  <strong>Website</strong><br />
+                  <a href="https://ooratech.com" target="_blank"
+                    >www.ooratech.com</a
+                  >
+                </div>
+              </div>
+              <div class="mt-4">
+                <a href="mailto:info@ooratech.com" class="btn btn-primary me-2">
+                  <i class="fas fa-envelope me-2"></i>Email Us
+                </a>
+                <a href="tel:+919488930228" class="btn btn-outline-primary">
+                  <i class="fas fa-phone me-2"></i>Call Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4 mb-4">
+          <div class="col-lg-4">
+            <h5>OORA Software Solutions</h5>
+            <p class="mb-3">
+              Empowering industries with intelligent automation and Industry 4.0
+              solutions. Building the future of manufacturing from rural India.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:info@ooratech.com" aria-label="Email"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4">
+            <h5>Company</h5>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#solutions">Solutions</a></li>
+              <li><a href="#why-us">Why Choose Us</a></li>
+              <li><a href="#vision">Vision & Mission</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4">
+            <h5>Services</h5>
+            <ul class="footer-links">
+              <li><a href="#solutions">IoT & IIoT</a></li>
+              <li><a href="#solutions">Automation</a></li>
+              <li><a href="#solutions">Robotics</a></li>
+              <li><a href="#solutions">AI Solutions</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4">
+            <h5>Resources</h5>
+            <ul class="footer-links">
+              <li><a href="#career">Careers</a></li>
+              <li><a href="#career">Internships</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2">
+            <h5>Contact</h5>
+            <ul class="footer-links">
+              <li><a href="tel:+919488930228">+91-9488-930-228</a></li>
+              <li><a href="mailto:info@ooratech.com">info@ooratech.com</a></li>
+              <li>
+                <small class="d-block mt-2"
+                  >KrishnanKoil, Srivilliputtur<br />Tamil Nadu, India</small
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-top pt-4 mt-4">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <small
+                >© <span id="year"></span> OORA Software Solutions
+                (OORATECH.COM). All rights reserved.</small
+              >
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <small>
+                <a href="#" class="me-3">Privacy Policy</a>
+                <a href="#" class="me-3">Terms of Service</a>
+                <a href="#">Sitemap</a>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        var y = new Date().getFullYear();
+        var el = document.getElementById("year");
+        if (el) {
+          el.textContent = y;
+        }
+      })();
+
+      (function () {
+        var links = document.querySelectorAll('a[href^="#"]');
+        for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", function (e) {
+            var targetId = this.getAttribute("href");
+            if (targetId.length > 1) {
+              var target = document.querySelector(targetId);
+              if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
